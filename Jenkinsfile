@@ -61,13 +61,14 @@ pipeline {
                 }
             }
         }
-        */
+        
 
         stage('Checkout') {
             steps {
                 git 'https://github.com/roberttemta/airport_Geolocation_Project.git'
             }
         }
+        */
         stage('validate') {
             steps {
                 sh 'mvn validate'
