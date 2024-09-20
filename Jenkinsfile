@@ -1,6 +1,9 @@
 
 pipeline {
     agent any
+    toola{
+        maven 'M2_HOME'
+    }
 
     stages {
 
