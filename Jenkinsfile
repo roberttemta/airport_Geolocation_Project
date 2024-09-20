@@ -1,6 +1,7 @@
 
 pipeline {
     agent any
+
     tools{
         maven 'M2_HOME'
     }
@@ -11,6 +12,25 @@ pipeline {
                 withSonarQubeEnv('sonarQube'){
                     sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=roberttemta_airport_Geolocation_Project'
                 }
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('mvn Clean') {
+            steps {
+                sh 'mvn clean'
+            }
+        }stage('mvn Install') {
+            steps {
+                sh 'mvn install'
+            }
+        }
+        stage('mvn Package') {
+            steps {
+                sh 'mvn package'
             }
         }
     }
