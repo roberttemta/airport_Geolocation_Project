@@ -15,12 +15,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-
+        
         stage('mvn Clean') {
             steps {
                 sh 'mvn clean'
@@ -33,6 +28,11 @@ pipeline {
         stage('mvn Package') {
             steps {
                 sh 'mvn package'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
             }
         }
     }
