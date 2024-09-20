@@ -1,10 +1,11 @@
 
 pipeline {
     agent any
-
+/*
     tools{
         maven 'M2_HOME'
     }
+    */
     stages {
 
         stage("Analysis by SonarQube"){
@@ -19,7 +20,7 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        
+
         stage('mvn Clean') {
             steps {
                 sh 'mvn clean'
