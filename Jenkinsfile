@@ -68,6 +68,16 @@ pipeline {
                 git 'https://github.com/roberttemta/airport_Geolocation_Project.git'
             }
         }
+        stage('validate') {
+            steps {
+                sh 'mvn validate'
+            }
+        }
+        stage('compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
 
         stage('Clean') {
             steps {
